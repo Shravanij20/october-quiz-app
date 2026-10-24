@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- main container -->
+    <div class="ticket">
+
+        <!-- app header -->
+         <header class="ticket_head">
+            <h1 class="ticket_title">Quizzly</h1>
+            <span class="ticket_eyebrow">AI quiz app</span>
+        </header>
+
+        <main class="ticket_body">
+            <!-- screen 1 input -->
+             <section class="screen" id="screen-input" data-screen="true">
+                <h2>Create Quiz</h2>
+                <p class="hint">Enter your API key</p>
+
+                <form id="quizForm">
+                    <!-- gemini api key and label -->
+
+                    <label class="field">
+                        <span>Gemini API Key</span>
+                        <input type="password" id="apiKeyInput" placeholder="Enter your Gemini API key" required>
+                    </label>
+
+                    <label class="field">
+                        <span>Topic</span>
+                        <input type="text" id="topicInput" placeholder="Enter a topic" required>
+                    </label>
+
+                    <!-- quiz settings -->
+                    <div class="field-row">
+
+                        <label class="field">
+                            <span>Number of Questions</span>
+                            <select id="countInput">
+                                <option value="3">3</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>    
+                            </select>
+                        </label>
+
+                        <label class="field">
+                            <span>Difficulty level</span>
+                            <select id="difficultyInput">
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </label>
+
+                    </div>
+                    <button type="submit" class="btn">Create Quiz</button>
+
+                </form>
+             </section>
+
+            <!-- screen 2 quiz -->
+             <section class="screen" id="screen-loading" data-screen="false">
+                <div class="stamp-spinner"></div>
+                <h2 id="loadingText">Creating your quiz...</h2>
+                <p class="hint"> this takes usually few seconds</p>
+             </section>
+
+            <!-- third screen -->
+             <section class="screen" id="screen-quiz" data-screen="false">
+                <p class="kicker" id="quizTopicLabel"> Topic</p>
+                <p class="progress" id="quizProgress"> Question 1 to 5</p>
+
+                <!-- progress bar fillwidth -->
+                 <div class="progress-bar">
+                    <div class="progress-bar_fill" id="progressFill"></div>
+                 </div>
+
+                 <!-- question text filled by script -->
+                  <h2 id ="questionText"></h2>
+
+                  <!-- empty container -->
+
+                  
+
+                  <div class="options" id="optionsContainer"></div>
+                    <div class="quiz-action">
+                        <button type="button" class="btn" id="prevBtn">previous</button>
+                        <button type="button" class="btn" id="nextBtn" disabled>next</button>
+                    </div>
+                  
+
+             </section>
+        </main>
+    </div>
+
+</body>
+</html>
